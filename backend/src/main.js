@@ -273,26 +273,38 @@ const isDnaUnique = (_DnaList = new Set(), _dna = "") => {
 };
 
 const createDna = (_layers) => {
-  let randNum = [];
-  _layers.forEach((layer) => {
-    var totalWeight = 0;
-    layer.elements.forEach((element) => {
-      totalWeight += element.weight;
+    let randNum = [];
+    var isChain = false;
+    _layers.forEach((layer) => {
+        var totalWeight = 0;
+
+        layer.elements.forEach((element) => {
+            totalWeight += element.weight;
+        });
+        // number between 0 - totalWeight
+        let random = Math.floor(Math.random() * totalWeight);
+        for (var i = 0; i < layer.elements.length; i++) {
+            // subtract the current weight from the random weight until we reach a sub zero value.
+            random -= layer.elements[i].weight;
+            if (random < 0) {
+                if (layer.name == 'Chain' && layer.elements[i].filename != 'blank#100.png') {
+                    isChain = true;
+                    // 'console.log('chain is true!');
+                }
+                if ((layer.name == 'Charm Center' || layer.name == 'Charm Left' || layer.name == 'Charm Right') && isChain == false) {
+                    //  console.log('I am running chain is false');
+                    return randNum.push(
+                        `${layer.elements[0].id}:blank.png${layer.bypassDNA ? "?bypassDNA=true" : ""
+                        }`);
+                } else {
+                    return randNum.push(
+                        `${layer.elements[i].id}:${layer.elements[i].filename}${layer.bypassDNA ? "?bypassDNA=true" : ""
+                        }`);
+                }
+
+            }
+        }
     });
-    // number between 0 - totalWeight
-    let random = Math.floor(Math.random() * totalWeight);
-    for (var i = 0; i < layer.elements.length; i++) {
-      // subtract the current weight from the random weight until we reach a sub zero value.
-      random -= layer.elements[i].weight;
-      if (random < 0) {
-        return randNum.push(
-          `${layer.elements[i].id}:${layer.elements[i].filename}${
-            layer.bypassDNA ? "?bypassDNA=true" : ""
-          }`
-        );
-      }
-    }
-  });
   return randNum.join(DNA_DELIMITER);
 };
 
