@@ -4,8 +4,13 @@
     "\\backend",
     "\\backend\\constants",
     "\\backend\\layers",
-    "\\backend\\src"
+    "\\backend\\layers\\Foot",
+    "\\backend\\layers\\Toppers",
+    "\\backend\\modules",
+    "\\backend\\src",
+    "\\backend\\utils",
+    "\\backend\\utils\\functions"
   ],
-  "SelectedNode": "\\backend\\src\\config.js",
+  "SelectedNode": "\\backend\\layers\\Toppers\\Sundae Chocolate#10.png",
   "PreviewInSolutionExplorer": false
 }
