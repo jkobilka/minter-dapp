@@ -289,10 +289,10 @@ const createDna = (_layers) => {
             if (random < 0) {
                 if (layer.name == 'Chain' && layer.elements[i].filename != 'blank#100.png') {
                     isChain = true;
-                    // 'console.log('chain is true!');
+                 //   console.log('isChain = True; Layer: ' + ${layer.name});
                 }
                 if ((layer.name == 'Charm Center' || layer.name == 'Charm Left' || layer.name == 'Charm Right') && isChain == false) {
-                    //  console.log('I am running chain is false');
+                   // console.log('isChain = ' + isChain + 'Layer: ' + layer.name);
                     return randNum.push(
                         `${layer.elements[0].id}:blank.png${layer.bypassDNA ? "?bypassDNA=true" : ""
                         }`);
