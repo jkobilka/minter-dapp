@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\backend",
-    "\\backend\\constants",
     "\\backend\\layers",
-    "\\backend\\layers\\Foot",
+    "\\backend\\layers\\Extras",
+    "\\backend\\layers\\Nail Color",
     "\\backend\\layers\\Toppers",
     "\\backend\\modules",
     "\\backend\\src",
     "\\backend\\utils",
     "\\backend\\utils\\functions"
   ],
-  "SelectedNode": "\\backend\\layers\\Toppers\\Sundae Chocolate#10.png",
+  "SelectedNode": "\\backend\\layers\\Toppers",
   "PreviewInSolutionExplorer": false
 }
